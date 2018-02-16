@@ -6,6 +6,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AuthProvider } from '../providers/auth/auth';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+// AF2 Settings
+const firebaseConfig = {
+  apiKey: "AIzaSyAJF5weT3f9aylmlP7lh-Z5O0wolgYnACA",
+    authDomain: "pazhamkali.firebaseapp.com",
+    databaseURL: "https://pazhamkali.firebaseio.com",
+    projectId: "pazhamkali",
+    storageBucket: "pazhamkali.appspot.com",
+    messagingSenderId: "981135211443"
+};
 
 @NgModule({
   declarations: [
@@ -14,7 +28,9 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,7 +40,8 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider
   ]
 })
 export class AppModule {}
