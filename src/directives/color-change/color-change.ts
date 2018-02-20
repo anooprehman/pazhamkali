@@ -21,7 +21,7 @@ export class ColorChangeDirective {
   }
 
   border(color: string) {
-    this.el.nativeElement.style.border = "1px solid "+color;
+    this.el.nativeElement.style.border = color;
   }
 
 }

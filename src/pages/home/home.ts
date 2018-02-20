@@ -47,7 +47,7 @@ export class HomePage {
     this.currentIndex = 0;
     this.gameFinished = false;
     this.buttons.forEach((button,i) => {
-      button.border("#000000");
+      button.border("1px solid #000000");
       button.color = null;
       button.highlight(null);
 
@@ -98,7 +98,7 @@ export class HomePage {
       this.squares[index] = this.currentPlayer;
       this.buttons.forEach((button,i) => {
         if(i == this.previousIndex) {
-          button.border("#000000");
+          button.border("1px solid #000000");
         }
         button.color = this.color[i];
         button.highlight(button.color);
@@ -112,7 +112,7 @@ export class HomePage {
       this.previousIndex = index;
       this.buttons.forEach((button,i) => {
         if(i == index) {
-          button.border("#0000FF");
+          button.border("5px solid #FFFF00");
         }
       });
     }
